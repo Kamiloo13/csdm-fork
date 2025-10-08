@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> EVERYTHING is currently broken cuz valve
+
 # CS Demo Manager - CLI Highlights Enhancement
 
 This is a fork of the powerful CS Demo Manager desktop application, enhanced with a new, highly customizable command-line interface (CLI) tool for automatically generating player-specific highlights from Counter-Strike 2 demos.
@@ -10,10 +13,10 @@ The core purpose of this fork is to provide a "fire-and-forget" command that can
 
 This fork introduces a new CLI command with the following key features:
 
-* **Player-Specific Highlights**: Provide a demo file path and a player's SteamID64, and the tool will automatically launch the game and play *only* that player's kills.
-* **Custom Resolution**: The game launch resolution can be easily configured in a settings file.
-* **Automatic Game Shutdown**: Once the highlight playback is complete, the game will automatically close itself, making it perfect for automated workflows.
-* **CLI-Driven**: The entire process is controlled from your terminal, providing detailed log output.
+- **Player-Specific Highlights**: Provide a demo file path and a player's SteamID64, and the tool will automatically launch the game and play _only_ that player's kills.
+- **Custom Resolution**: The game launch resolution can be easily configured in a settings file.
+- **Automatic Game Shutdown**: Once the highlight playback is complete, the game will automatically close itself, making it perfect for automated workflows.
+- **CLI-Driven**: The entire process is controlled from your terminal, providing detailed log output.
 
 ---
 
@@ -21,9 +24,9 @@ This fork introduces a new CLI command with the following key features:
 
 Before you begin, ensure you have the following installed and running:
 
-* **Node.js**: Version 22 or higher.
-* **PostgreSQL**: A running instance of a PostgreSQL database.
-* **Counter-Strike 2**: Installed and configured on your machine.
+- **Node.js**: Version 22 or higher.
+- **PostgreSQL**: A running instance of a PostgreSQL database.
+- **Counter-Strike 2**: Installed and configured on your machine.
 
 ---
 
@@ -52,30 +55,30 @@ npm install
 
 The CLI tool reads its configuration from a `settings.json` file located in your user's application data folder. You must create this file manually.
 
-* **Navigate to the settings folder.** The developer version of this app uses a hidden folder in your user directory. On Windows, this is:
-    `C:\Users\<YourUser>\.csdm-dev\`
-    *(You may need to create the `.csdm-dev` folder if it doesn't exist.)*
+- **Navigate to the settings folder.** The developer version of this app uses a hidden folder in your user directory. On Windows, this is:
+  `C:\Users\<YourUser>\.csdm-dev\`
+  _(You may need to create the `.csdm-dev` folder if it doesn't exist.)_
 
-* **Create the settings file.** Inside that folder, create a new file named **`settings.json`**.
+- **Create the settings file.** Inside that folder, create a new file named **`settings.json`**.
 
-* **Add your configuration.** Copy and paste the template below into your `settings.json` file, and be sure to **replace the placeholder values** with your actual database credentials.
+- **Add your configuration.** Copy and paste the template below into your `settings.json` file, and be sure to **replace the placeholder values** with your actual database credentials.
 
-    ```json
-    {
-      "database": {
-        "host": "127.0.0.1",
-        "port": 5432,
-        "user": "postgres",
-        "password": "YOUR_DATABASE_PASSWORD_HERE",
-        "database": "csdm"
-      },
-      "playback": {
-        "width": 1920,
-        "height": 1080,
-        "closeGameAfterHighlights": true
-      }
+  ```json
+  {
+    "database": {
+      "host": "127.0.0.1",
+      "port": 5432,
+      "user": "postgres",
+      "password": "YOUR_DATABASE_PASSWORD_HERE",
+      "database": "csdm"
+    },
+    "playback": {
+      "width": 1920,
+      "height": 1080,
+      "closeGameAfterHighlights": true
     }
-    ```
+  }
+  ```
 
 ---
 

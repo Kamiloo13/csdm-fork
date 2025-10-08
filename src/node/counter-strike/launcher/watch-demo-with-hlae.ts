@@ -146,7 +146,7 @@ export async function watchDemoWithHlae(options: HlaeOptions) {
     launchParameters: userLaunchParameters,
   } = settings.playback;
 
-  const gameParameters = ['-insecure', '-novid', '+playdemo', `\\"${demoPath}\\"`];
+  const gameParameters = ['-insecure', '-novid', '+playdemo', `\\"${demoPath}\\"`, '+exec', '"hlae.cfg"'];
   if (Array.isArray(options.playDemoArgs)) {
     gameParameters.push(...options.playDemoArgs);
   }

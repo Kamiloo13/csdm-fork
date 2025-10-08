@@ -10,6 +10,8 @@ import { generatePlayerHighlightsJsonFile } from '../json-actions-file/generate-
 import type { Perspective } from 'csdm/common/types/perspective';
 import { watchDemoWithHlae } from './watch-demo-with-hlae';
 import { assertPlayersSlotsAreDefined } from './assert-players-slots-are-defined';
+import path from 'path';
+import fs from 'fs';
 
 type Options = {
   demoPath: string;
@@ -83,6 +85,26 @@ export async function watchPlayerHighlights({ demoPath, steamId, perspective, on
   }
 
   if (useHlae) {
+    // Create a .cfg file to anonymize the player names in the killfeed
+    const cfgFilePath = path.join(demoPath, '..', '..', 'cfg', 'hlae.cfg');
+    await fs.promises.writeFile(
+      cfgFilePath,
+      `cl_draw_only_deathnotices 1
+mirv_replace_name byUserId add 0 "Player_1"
+mirv_replace_name byUserId add 1 "Player_2"
+mirv_replace_name byUserId add 2 "Player_3"
+mirv_replace_name byUserId add 3 "Player_4"
+mirv_replace_name byUserId add 4 "Player_5"
+mirv_replace_name byUserId add 5 "Player_6"
+mirv_replace_name byUserId add 6 "Player_7"
+mirv_replace_name byUserId add 7 "Player_8"
+mirv_replace_name byUserId add 8 "Player_9"
+mirv_replace_name byUserId add 9 "Player_10"
+mirv_replace_name byUserId add 10 "Player_11"
+mirv_replace_name byUserId add 11 "Player_12"
+mirv_replace_name byXuid add x${steamId} "Suspect"`,
+    );
+
     await watchDemoWithHlae({
       demoPath,
       game,
